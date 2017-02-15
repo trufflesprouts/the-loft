@@ -1,0 +1,15 @@
+@import "./vendors/foundation.min.scss";
+@import "fonts";
+@import "header";
+
+.container {
+  margin: 0 auto;
+  padding: 45px;
+  max-width: 1920px;
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0;
+  }
+}
