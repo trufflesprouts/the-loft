@@ -1,5 +1,9 @@
-var hamburgerIcon = document.getElementById('hamburger-icon');
+'use strict';
+'use strict';
 
+
+// Hamburger Icon
+var hamburgerIcon = document.getElementById('hamburger-icon');
 hamburgerIcon.addEventListener('click', ev => {
   if (hamburgerIcon.className === 'active') {
     hamburgerIcon.className = '';
@@ -18,3 +22,42 @@ function hamburgerFunction() {
     nav.className = "topnav";
   }
 }
+
+
+// Slider
+var Slider = (function() {
+  var sliderElm = document.getElementById('slider');
+  var slides = Array.from(document.getElementsByClassName('slides'))[0];
+  var leftArrow = document.getElementById('left-arrow');
+  var rightArrow = document.getElementById('right-arrow');
+  var scrollArrow = document.getElementById('scroll-arrow');
+
+  var slideWidth = sliderElm.offsetWidth;
+  var currentPosition = 0;
+
+  leftArrow.addEventListener('click', ev => {
+    changeSlide("left");
+  });
+
+  rightArrow.addEventListener('click', ev => {
+    changeSlide("right");
+  });
+
+  function changeSlide(direction) {
+    if (direction === "left") {
+      slides.style.marginLeft = (currentPosition + slideWidth) +"px";
+      currentPosition += slideWidth;
+    } else if (direction === "right") {
+      slides.style.marginLeft = (currentPosition - slideWidth) +"px";
+      currentPosition -= slideWidth;
+    }
+  }
+
+  function privateFunction() {
+    console.log("Name:" + privateVar);
+  }
+  return {
+  };
+})();
+
+// Slider.setName( "Paul Kinlan" );
