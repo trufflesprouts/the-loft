@@ -1,6 +1,4 @@
 'use strict';
-'use strict';
-
 
 // Hamburger Icon
 var hamburgerIcon = document.getElementById('hamburger-icon');
@@ -27,13 +25,11 @@ function hamburgerFunction() {
 // Slider
 var Slider = (function() {
   var sliderElm = document.getElementById('slider');
-  var slides = Array.from(document.getElementsByClassName('slides'))[0];
   var leftArrow = document.getElementById('left-arrow');
   var rightArrow = document.getElementById('right-arrow');
-  var scrollArrow = document.getElementById('scroll-arrow');
+  var slides = Array.from(document.querySelectorAll('#slider .slide'));
 
-  var slideWidth = sliderElm.offsetWidth;
-  var currentPosition = 0;
+  var currentSlide = 0;
 
   leftArrow.addEventListener('click', ev => {
     changeSlide("left");
@@ -45,19 +41,19 @@ var Slider = (function() {
 
   function changeSlide(direction) {
     if (direction === "left") {
-      slides.style.marginLeft = (currentPosition + slideWidth) +"px";
-      currentPosition += slideWidth;
+      slides[currentSlide].style.opacity = 0;
+      currentSlide = currentSlide - 1;
+      if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+      }
+      slides[currentSlide].style.opacity = 1;
     } else if (direction === "right") {
-      slides.style.marginLeft = (currentPosition - slideWidth) +"px";
-      currentPosition -= slideWidth;
+      slides[currentSlide].style.opacity = 0;
+      currentSlide = currentSlide + 1;
+      if (currentSlide > slides.length - 1) {
+        currentSlide = 0;
+      }
+      slides[currentSlide].style.opacity = 1;
     }
   }
-
-  function privateFunction() {
-    console.log("Name:" + privateVar);
-  }
-  return {
-  };
 })();
-
-// Slider.setName( "Paul Kinlan" );
