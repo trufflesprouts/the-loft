@@ -39,6 +39,12 @@ var Slider = (function() {
     changeSlide("right");
   });
 
+  if (window.innerWidth <= 640) {
+    setInterval(() => {
+      changeSlide("right");
+    }, 4500);
+  }
+
   function changeSlide(direction) {
     if (direction === "left") {
       slides[currentSlide].style.opacity = 0;
