@@ -1,6 +1,7 @@
 @import "./vendors/foundation.min.scss";
 @import "./common/fonts";
 @import "./common/header";
+@import "./common/footer";
 
 .column, .columns {
   padding: 0;
@@ -48,6 +49,7 @@
 .svg-symbol {
   display: inline-block;
   margin-right: 10px;
+  padding-bottom: 4px;
 }
 
 h1, h2, h3, h4, h5, p {
